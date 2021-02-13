@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.project.meg.mapper.BoardMapper">
+
+  	<select id="addAndGetKey" resultType="Integer">
+  		SELECT last_insert_id()
+  	</select>
+  
+  	<insert id="insertBoard"
+  	parameterType="com.project.meg.vo.BoardVO">
+  	INSERT INTO board 
+  	VALUES (Null, #{author}, #{wdate}, #{title}, #{contents})
+  	</insert>
+  	
+  	<insert id="add" parameterType="com.project.meg.vo.BoardVO"
+  	useGeneratedKeys="true" keyProperty="num">
+  	INSERT INTO board (author, wdate, title, contents) 
+  	VALUES (#{author}, now(), #{title}, #{contents})
+  	</insert>
+  	
+  	<insert id="replyInsert" parameterType="com.project.meg.vo.BoardVO">
+  	INSERT INTO board (author, wdate, title, contents, pnum)
+  	VALUES (#{author}, now(), #{title}, #{contents}, #{pnum})
+  	</insert>
+  	
+  	<select id="select"
+  	parameterType="Integer"
+  	resultType="com.project.meg.vo.BoardVO">
+  	SELECT num,author,wdate,title,contents,views 
+  	FROM board
+  	WHERE num=#{num}
+  	</select>
+
+	<select id="search" resultType="com.project.meg.vo.BoardVO"
+	parameterType="String">
+	SELECT * FROM board WHERE (title LIKE CONCAT('%',#{sen},'%'))
+	OR (author LIKE CONCAT('%',#{sen},'%')) ORDER BY num DESC
+	</select>
+  	
+	<update id="updateBoard"
+	parameterType="com.project.meg.vo.BoardVO">
+	UPDATE board 
+	SET author=#{author}, wdate=now(), title=#{title}, contents=#{contents}
+	WHERE num=#{num}
+	</update>
+  	
+  	<select id="getBoardList" parameterType="hashMap" resultType="com.project.meg.vo.BoardVO">
+  	
+	WITH RECURSIVE tmp1 AS
+	(
+		<!-- Anchor Member를 먼저 실행 후, RS1을 생성 (비반복문으로서 1번만 실행)-->
+		SELECT num,title,author,wdate,contents,views,pnum,likes
+			,num AS grpno
+			,CONCAT(REPEAT('0',(6-CHAR_LENGTH(CAST(num AS CHAR(30))))),CAST(num AS CHAR(30))) path
+			,0 AS lvl
+	    FROM board
+	    WHERE pnum is null
+	    
+	    UNION <!--모든 RS이 생성되었을때, 이를 모두 UNION하여 최종 output을 도출 -->
+		
+	    <!-- Recursive Member에서 RS1을 input으로 받아 실행 후, Null이 나올때까지 RS2,3,4... 반복생성-->
+	    SELECT b.num, b.title,b.author,b.wdate,b.contents,b.views,b.pnum,b.likes
+	    	,t.grpno
+	    	,CONCAT(t.path,',',CONCAT(REPEAT('0',(6-CHAR_LENGTH(CAST(b.num AS CHAR(30))))), 
+	    	CAST(b.num AS CHAR(30)))) AS path, t.lvl+1 AS lvl
+	    FROM tmp1 t
+	    JOIN board b
+	    ON t.num=b.pnum
+	)
+	SELECT
+		num, CONCAT(REPEAT('ㅤㄴRE:',lvl),title) title,author,DATE_FORMAT(wdate,'%Y-%m-%d') wdate
+		<!--REPEAT(String, number) 함수는 해당 String을 number번 반복-->
+		<!--CONCAT(String, String) 함수는 해당 String 이어붙이기-->
+		,contents,views,pnum,likes,path,lvl,grpno
+	FROM tmp1
+	ORDER BY grpno desc, path asc
+
+  	</select>
+  
+  	<select id="getRowNum" parameterType="hashMap" resultType="integer">
+			
+ 	SELECT 
+	 		b.rn
+	FROM (
+			SELECT *
+	        	, @rownum:=@rownum + 1 AS rn 
+	        FROM 
+	        	board
+		        , (SELECT @rownum:=0) r 
+		    ORDER BY 
+				num desc) b
+	WHERE b.num = #{num}
+	
+ 	</select>	
+  <!--
+ 	<select id="getRowNum" 
+ 	parameterType="com.project.meg.vo.BoardVO" 
+ 	resultType="com.project.meg.vo.BoardVO">
+ 			
+  		SELECT 
+  			t.*, @rownum:=@rownum+1 rn 
+  		FROM
+			(
+				SELECT * 
+				FROM 
+					board, (SELECT @rownum:=0)r
+			)t		
+		
+  	</select>	     -->	 	
+  
+  	<select id="getIndexList" 
+  	parameterType="Integer"
+  	resultType="com.project.meg.vo.BoardVO">
+  	SELECT
+  		num,title,author,DATE_FORMAT(wdate,'%Y-%m-%d') as wdate, contents, views
+	FROM board	
+	WHERE num=#{num}
+  	</select>
+  	
+  	<select id="getNextBoard" 
+  	parameterType="Integer"
+  	resultType="com.project.meg.vo.BoardVO">
+	SELECT 
+		num,title,author,DATE_FORMAT(wdate,'%Y-%m-%d') as wdate, contents, views
+	FROM 
+		board
+	WHERE 
+		num 
+	IN 
+		(
+			SELECT max(num)
+			FROM board
+			WHERE #{num}>num
+		)
+	</select>
+	
+	<select id="getPreBoard" 
+	parameterType="Integer"
+	resultType="com.project.meg.vo.BoardVO">
+	SELECT 
+		num,title,author,DATE_FORMAT(wdate,'%Y-%m-%d') as wdate, contents, views
+	FROM 
+		board
+	WHERE 
+		num 
+	IN 
+		(
+			SELECT max(num)
+			FROM board
+			WHERE num>#{num}
+		)
+	</select>
+  	
+  	<select id="BoardPaging" resultType="com.project.meg.vo.BoardVO">
+  	SELECT
+  		num,title,author,DATE_FORMAT(wdate,'%Y-%m-%d') as wdate,contents, views
+	FROM board
+  	</select>
+  	
+  	<delete id="deleteBoard" parameterType="Integer">  	
+  		DELETE FROM board WHERE num=#{num}
+  	</delete>
+  
+	<update id="countUpdate" parameterType="com.project.meg.vo.BoardVO">
+	UPDATE board SET views = views+1   
+	WHERE num=#{num}
+	</update>
+	
+	<select id="pnum" resultType="com.project.meg.vo.BoardVO">
+	SELECT num from board WHERE num=#{num}
+	</select>
+  	
+</mapper>
