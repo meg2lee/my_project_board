@@ -131,44 +131,6 @@
   </a>
 </div>
 
-<!---------카드--------->
-<div class="container">
-  <h2>Meg's Fav Spot</h2>
-  <div class="card" style="width:250px">
-    <img class="card-img-top" src="/images/meg/m1.jpg" alt="Card image" style="width:100%">
-    <div class="card-body">
-      <h4 class="card-title">#Peru #MachuPicchu</h4>
-      <p class="card-text">FINALLY, I'm here in #machupicchu ⛰</p>
-      <a href="#" class="btn btn-primary">See Profile</a>
-    </div>
-  </div>
- 
- <div class="card" style="width:250px">
-   <img class="card-img-top" src="/images/meg/m2.jpg" alt="Card image" style="width:100%">
-   <div class="card-body">
-     <h4 class="card-title">#Mexico #RealDeCatorce</h4>
-     <p class="card-text">Adiós México 🇲🇽👋 Esperame Peru 🇵🇪</p>
-     <a href="#" class="btn btn-primary">See Profile</a>
-   </div>
- </div>
-
- <div class="card" style="width:250px">
-   <img class="card-img-top" src="/images/meg/m3.jpg" alt="Card image" style="width:100%">
-   <div class="card-body">
-     <h4 class="card-title">#Bolivia #Uyuni</h4>
-     <p class="card-text">Fullmoon🌕 in Uyuni</p>
-     <a href="#" class="btn btn-primary">See Profile</a>
-   </div>
- </div>
- 
- <div class="card" style="width:250px">
-   <img class="card-img-top" src="/images/meg/m3.jpg" alt="Card image" style="width:100%">
-   <div class="card-body">
-     <h4 class="card-title">#Bolivia #Uyuni</h4>
-     <p class="card-text">Fullmoon🌕 in Uyuni</p>
-     <a href="#" class="btn btn-primary">See Profile</a>
-   </div>
- </div>
  
 </div>
 

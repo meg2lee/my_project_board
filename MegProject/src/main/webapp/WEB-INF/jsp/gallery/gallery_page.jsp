@@ -100,17 +100,17 @@
     <img class="card-img-top" src="/images/meg/m1.jpg" alt="Card image" style="width:100%">
     <div class="card-body">
       <h4 class="card-title">#Peru #MachuPicchu</h4>
-      <p class="card-text">FINALLY, I'm here in #machupicchu ⛰</p>
-      <a href="#" class="btn btn-primary">See Profile</a>
+      <p class="card-text">FINALLY, I'm here in ⛰</p>
+      <a href="https://www.instagram.com/p/BUmm9NhAVux1KalUdDUQX-zkJ90l6EiRmXI8To0/" class="btn btn-primary btn-sm">Check it out</a>
     </div>
   </div>
  
  <div class="card" style="width:250px">
-   <img class="card-img-top" src="/images/meg/m2.jpg" alt="Card image" style="width:100%">
+   <img class="card-img-top" src="/images/meg/m5.JPG" alt="Card image" style="width:100%">
    <div class="card-body">
-     <h4 class="card-title">#Mexico </h4>
-     <p class="card-text">Adiós México 🇲🇽👋 Esperame Peru 🇵🇪</p>
-     <a href="#" class="btn btn-primary">See Profile</a>
+     <h4 class="card-title">#Chile #Atacama</h4>
+     <p class="card-text">Best sunset ever</p>
+     <a href="https://www.instagram.com/p/BVSCeD0A2OZJ5rY8kj20_oe-wSL4HH9hoXxoSA0/" class="btn btn-primary btn-sm">Check it out</a>
    </div>
  </div>
 
@@ -119,16 +119,54 @@
    <div class="card-body">
      <h4 class="card-title">#Bolivia #Uyuni</h4>
      <p class="card-text">Fullmoon🌕 in Uyuni</p>
-     <a href="#" class="btn btn-primary">See Profile</a>
+     <a href="https://www.instagram.com/p/BVKqMcqAeN7j9ILcXjc37Kual8BkN2HNJVhDWk0/" class="btn btn-primary btn-sm">Check it out</a>
    </div>
  </div>
  
  <div class="card" style="width:250px">
    <img class="card-img-top" src="/images/meg/m4.JPG" alt="Card image" style="width:100%">
    <div class="card-body">
-     <h4 class="card-title">#Bolivia #Uyuni</h4>
-     <p class="card-text">Fullmoon🌕 in Uyuni</p>
-     <a href="#" class="btn btn-primary">See Profile</a>
+     <h4 class="card-title">#iguazú #argentina</h4>
+     <p class="card-text">Garganta del diablo</p>
+     <a href="https://www.instagram.com/p/BVkG8M0g054AdDxjiYqemIQ23LbHaEpAsWEexM0/" class="btn btn-primary btn-sm">Check it out</a>
+   </div>
+ </div>
+ 
+ <div class="container">
+  <h2>Mexico</h2>
+  <div class="card" style="width:250px">
+    <img class="card-img-top" src="/images/meg/12.JPG" alt="Card image" style="width:100%">
+    <div class="card-body">
+      <h4 class="card-title">#Guanajuato</h4>
+      <p class="card-text">En San Miguel de Allende</p>
+      <a href="https://www.instagram.com/p/BQJjjrIjsN_DozVq0F9xwTA0BFZzA1fUG7rEJA0/" class="btn btn-primary btn-sm">Check it out</a>
+    </div>
+  </div>
+ 
+ <div class="card" style="width:250px">
+   <img class="card-img-top" src="/images/meg/m10.JPG" alt="Card image" style="width:100%">
+   <div class="card-body">
+     <h4 class="card-title">#CostaBaja</h4>
+     <p class="card-text">Best sunset sailing ever 🌅</p>
+     <a href="https://www.instagram.com/p/BRUcu8vAONaF-7pn_BgPWgSNCQzuU7cSRjKk6w0/" class="btn btn-primary btn-sm">Check it out</a>
+   </div>
+ </div>
+
+ <div class="card" style="width:250px">
+   <img class="card-img-top" src="/images/meg/m8.JPG" alt="Card image" style="width:100%">
+   <div class="card-body">
+     <h4 class="card-title">#Teotihuacán</h4>
+     <p class="card-text">Pyramids of ☀️🌙</p>
+     <a href="https://www.instagram.com/p/BS90V-8ghYCnUKEjcI7zlmqOcpl42WEtU5pMh00/" class="btn btn-primary btn-sm">Check it out</a>
+   </div>
+ </div>
+ 
+ <div class="card" style="width:250px">
+   <img class="card-img-top" src="/images/meg/m11.JPG" alt="Card image" style="width:100%">
+   <div class="card-body">
+     <h4 class="card-title">#Baja California Sur</h4>
+     <p class="card-text">Whatta vacation 🔆🕶</p>
+     <a href="https://www.instagram.com/p/BRRsXavAxMVtVj88B7vFfn6H_iJTy9w3HwtsIk0/" class="btn btn-primary btn-sm">Check it out</a>
    </div>
  </div>
  
