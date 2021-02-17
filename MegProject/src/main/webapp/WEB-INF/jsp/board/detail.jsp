@@ -11,7 +11,8 @@
 	#main_form label {margin-left: auto;margin-right: auto; font-size: 30px; font-family: fantasy;
 	background-size: cover;}
 	#head {margin-top:5%}
-	.btn2 {text-align: center;font-size: 30px; font-family: fantasy;}
+	.button1 {font-size: 30px; font-family: fantasy; margin-left:920px}
+	.button2 {font-size: 30px; font-family: fantasy; text-align: center;}
 	#file {text-align: left;}
 	#num {display:none;}
 	#reply {margin-right: 0px}
@@ -22,7 +23,7 @@
 	
 	ul{font-weight: bold;}
 	ul li {list-style-type: none; float:left; font-size: 20px;}
-	li:first-child {margin-right:650px;}
+	li:first-child {margin-right:610px;}
 	li:nth-child(2) {margin-right:30px}
 	li:last-child {margin-right:0px}
 
@@ -32,18 +33,16 @@
 	}
 	
 	#PreBoard,#nextBoard {
-		margin-left: 50px;font-size: 24px;
+		margin-left: 90px;
+		font-size: 24px;
 	    font-weight: bold;
 	    color: whitesmoke;
 	    background-color: #708090;
 	    border-color: #708090;
 	    width: 40px;
 	    height: 40px;
-	    padding-bottom: 15px;
 	    padding-left: 6px;
-	    border-radius: 20px;    
-	    left: 530px;
-	    top: 20px;
+	    border-radius: 20px;    	
     }
     
 	#nextBoard {margin-left:1000px}
@@ -58,6 +57,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
 
 <script src='https://code.jquery.com/jquery-3.5.1.min.js'></script>
   <script>
@@ -160,7 +160,7 @@
 			},
 			error:function(xhr, status, err){				
 					alert("다음 게시물이 없습니다");
-					window.location.reload();
+					
 			}
 		});   
 		
@@ -181,7 +181,7 @@
 			},
 			error:function(xhr, status, err){
 					alert("이전 게시물이 없습니다");
-					window.location.reload();
+					
 			}
 		});   
 	}
@@ -193,8 +193,8 @@
 <c:set var="b" value="${board}"></c:set>
 <br><br>
 <div>
-	<button type="button" id="PreBoard" onclick="showPreBoard(${board.num},1)">&#60;</button>
-	<button type="button" id="nextBoard" onclick="showNextBoard(${board.num},2)">&#62;</button>
+	<button type="button" id="PreBoard"  class="fas" onclick="showPreBoard(${board.num},1)">&#xf060;</button>
+	<button type="button" id="nextBoard" class="fas" onclick="showNextBoard(${board.num},2)">&#xf061;</button>
 </div>
 <div class="container">
 <div id="head">
@@ -218,10 +218,6 @@
 			</c:forEach>	
 			</div>
 		</div>
-		 <p class="btn">
-		     <button type="button" onclick="repl('${board.num}')" 
-		     class="btn btn-primary" id="reply">Reply</button>
-		 </p>
 	</form>
 	<div>		
 	</div>
@@ -241,15 +237,19 @@
 		<input type="hidden" id="num" name="num" value = "${board.num}">
 		<label for="text"></label>
 		<textarea id="text" name="text" placeholder="Leave your comments here"></textarea>
-		<button type="button" onclick="addComment(${board.num});">Save</button>
+		<button type="button" class="btn btn-sm btn-secondary" style="margin-bottom: 20px" onclick="addComment(${board.num});">Save</button>
 	</form>
 
 <!-- 메인페이지가기 & 게시글삭제 버튼 -->	
-	<p class="btn2">
-		<a href="/Meg/board/list/page/1" class="btn btn-primary btn-md">Main Page</a>
-		<a href="javascript:deleteIt('${board.num}');" class="btn btn-primary btn-md">Delete</a>
-		<a href="/Meg/board/edit?id=${board.num}" class="btn btn-primary btn-md">Edit</a>
-	</p>
+
+ 	<div class="button1">
+	     <button type="button" onclick="repl('${board.num}')" class="btn btn-outline-primary" id="reply">Reply</button>
+	     <a href="/Meg/board/edit?id=${board.num}" class="btn btn-outline-primary">Edit</a>
+	</div>
+	<div class="button2">
+		<a href="/Meg/board/list/page/1" class="btn btn-outline-primary">Main Page</a>		
+	</div>
+	
 </div>
 
 </body>

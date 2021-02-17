@@ -146,11 +146,11 @@
 		<input type="text" class="form-control form-control-sm" name="searchText" id="searchText">
 	</div>
 	<div>
-		<button class="btn btn-sm btn-secondary" name="btnSearch" id="btnSearch"
+		<button class="btn btn-outline-secondary btn-sm" name="btnSearch" id="btnSearch"
 		type="submit" value="btnSearch">Search</button>
 	</div>
 	<div style="position: relative;" id="question_div">
-		<a href = "1/upload" class="btn btn-secondary btn-md">leave your question</a>	
+		<a href = "1/upload" class="btn btn-outline-secondary btn-sm">Leave your question</a>	
 	</div>
 </div>
 </form>

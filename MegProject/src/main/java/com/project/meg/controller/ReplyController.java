@@ -30,7 +30,7 @@ public class ReplyController {
 	@GetMapping("reply/{parent_num}")
 	public String show_repl_form(@PathVariable int parent_num, Model model) {
 		model.addAttribute("parent_num",parent_num);
-		return "reply_form"; 		
+		return "board/reply_form"; 		
 	}
 	
 	@RequestMapping("reply/upload") /*텍스트파일업로드*/
