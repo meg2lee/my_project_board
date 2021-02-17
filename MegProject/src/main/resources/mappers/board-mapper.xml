@@ -147,7 +147,7 @@
 		num 
 	IN 
 		(
-			SELECT max(num)
+			SELECT min(num)
 			FROM board
 			WHERE num>#{num}
 		)

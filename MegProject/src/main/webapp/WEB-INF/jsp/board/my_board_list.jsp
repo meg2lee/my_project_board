@@ -84,14 +84,12 @@
 </div>	
 <table class="table table-hover">
 	<thead>
-		<tr id="top"><th>ORDER</th><th>TITLE</th><th>AUTHOR</th><th>DATE</th><th>VIEWS</th><th>LIKES</th></tr>
+		<tr id="top"><th>ORDER</th><th>TITLE</th><th>AUTHOR</th><th>DATE</th><th>VIEWS</th></tr>
 	</thead>
 	<c:forEach var="b" items="${pageInfo.list}">
 	
 		<tr class="this">
-		<c:forEach var="r" items="${rowNum}">
-			<td>${r}</td>
-		</c:forEach>
+			<td>${b.num}</td>	
 			<td>
 				<c:if test="${b.pnum != 0 }"></c:if>
 				<a href = "/Meg/board/detail?num=${b.num}" onclick="countView(${b.num});">${b.title}</a>
@@ -99,7 +97,7 @@
 			<td>${b.author}</td>
 			<td>${b.wdate}</td>			
 			<td>${b.views}</td>
-			<td>${b.likes}</td>
+		
 		
 		</tr>
 	</c:forEach>

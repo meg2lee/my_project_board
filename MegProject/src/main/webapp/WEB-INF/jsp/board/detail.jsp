@@ -176,8 +176,8 @@
 			data:{'num': num
 				,'page':page},      
 			dataType:'text',
-			success:function(data){
-				location.href="/Meg/board/detail?num="+num
+			success:function(res){
+				location.href="/Meg/board/detail?num="+res
 			},
 			error:function(xhr, status, err){
 					alert("이전 게시물이 없습니다");
