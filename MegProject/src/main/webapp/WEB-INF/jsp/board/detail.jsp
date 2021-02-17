@@ -16,7 +16,7 @@
 	#num {display:none;}
 	#reply {margin-right: 0px}
 	#text {width: 1000px; height: 100px; resize: none; margin-left: 40px}
-	#file {margin-left: 40px}
+	#file,#commentsList {margin-left: 40px}
 	#writer {width: 100px}
 	h1 {text-align: center}
 	

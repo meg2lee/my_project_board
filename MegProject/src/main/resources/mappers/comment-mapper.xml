@@ -18,7 +18,7 @@
 	<insert id="addComment" 
 	parameterType="com.project.meg.vo.CommentVO">	
 	INSERT INTO comments(bno, cno, writer, text, regdate)
-	VALUES (#{bno}, Null, #{writer}, #{text}, now())
+	VALUES (#{bno}, Null, Null, #{text}, now())
 	</insert>
 	
 	<delete id="deleteComment"

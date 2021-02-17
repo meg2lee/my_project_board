@@ -37,7 +37,7 @@ public class CommentController {
 
 		CommentVO vo = new CommentVO();	
 		vo.setBno(bno);
-		vo.setWriter(request.getParameter("writer"));
+//		vo.setWriter(request.getParameter("writer"));
 		vo.setText(request.getParameter("text"));				
 		commentMapper.addComment(vo);
 		
