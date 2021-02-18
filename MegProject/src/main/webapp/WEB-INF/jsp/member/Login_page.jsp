@@ -58,24 +58,24 @@
 	    background-color: #685547;
 	    
 	}
-	.join, .find{
+	.login, .find{
 	    display: inline;
 	    text-align: center;
 	}
-	.join{
+	.login{
 	    margin-right: 195px;
 	}
-	.join > a, .find > a{
+	.login > a, .find > a{
 	    font-size: 1.5rem;
 	    color: #685547;
 	    font-style: bold;    
 	}
 	
-	.join > a:hover, .find > a:hover{
+	.login > a:hover, .find > a:hover{
 	    border-bottom: 1px solid black;
 	}
 	
-	.join-member > hr {
+	.login-member > hr {
 	    color: #685547;
 	}
 	
@@ -104,6 +104,10 @@
   	}
   	
 </style>
+<script src='https://code.jquery.com/jquery-3.5.1.min.js'></script>
+<script>
+
+</script>
 </head>
 <body>
 <div id="header">
@@ -112,13 +116,14 @@
 		<a href ="/Meg/board/list/page/1"><img id="home" src="/images/chat.png"></a>
 		<a href ="/Meg/login" id="login">Login</a>
 	</div>	
+
 </div>
 
 <div id="main">
 <div class="container main-login">
 	<h1>Login</h1>
-	<form>
-		<input type="email" name="email" id="user_id_login" size="40" placeholder="ID" required><br>
+	<form id="login" action="/Meg/user/login" method="post">
+		<input type="email" name="email" id="user_id_login" size="40" placeholder="Email" required><br>
 		<input type="password" name="password" id="user_pw_login" size="40" placeholder="Password" required><br>
 		<div class="warning"></div>
 		<div>

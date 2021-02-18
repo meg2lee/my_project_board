@@ -10,11 +10,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.project.meg.mapper.MemberMapper;
 import com.project.meg.vo.MemberVO;
 
 @Controller
+@SessionAttributes("member")
 @RequestMapping("Meg") 
 public class MemberController {
 	
@@ -36,6 +38,16 @@ public class MemberController {
 			, MemberVO memberVO){
 		
 		return memberMapper.addUser(memberVO)+"";
+	}
+	
+	
+	@RequestMapping("user/login")
+	public String loginUser(Model model
+			, MemberVO memberVO){
+		
+		String name = memberMapper.loginUser(memberVO);
+		model.addAttribute("member",name);
+		return "main/main_page";
 	}
 	
 	

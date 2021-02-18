@@ -11,5 +11,6 @@ import com.project.meg.vo.MemberVO;
 public interface MemberMapper {
 
 	boolean addUser(MemberVO vo);
+	String loginUser(MemberVO memberVO);
 
 }

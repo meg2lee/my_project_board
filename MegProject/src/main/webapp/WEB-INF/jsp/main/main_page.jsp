@@ -22,41 +22,38 @@
  
 	#header {
 	  width: 100%;
-	  height: 65px;
-	  text-align: center;
+	  height: 80px;
+	  border-bottom-style: dashed;
 	}
 	
 	#home,#chat,#gallery {
 		width: 50px;
 		height: 50px;
-		margin-top: 10px;
+		margin-top: -40px;
 		margin-left: 10px;
 	}
-		
-  	table {text-align: center}
   	
-  	h2 {
-  		text-align: center;
-  		font-size: 80px; 
-  		font-family: fantasy;
-  		text-align: center; 
-  		color: grey; 
-  		margin-top: 20px; 
-  	}
-  	
-  	.header-container-right {
+  	.header-container{
   		display: inline-block;
   	}
   	
-  	#login {
-  		margin-left:1000px;
+  	.welcome {
+  		display: inline-block;
+  		font-size: 50px; 
   		font-family: fantasy;
-  		color: white;
-  		font-size: 30px;
-  		margin-top: 20px;
-  		text-decoration: none;
+  		color: grey; 
+  		margin-left:260px;		
   	}
   	
+  	.login, .logout {
+  		display: inline-block;
+  		font-family: fantasy;
+  		color: black;
+  		font-size: 50px; 	
+  		text-decoration: none;
+  		margin-left: 300px
+  	}
+ 
   	.container {
   		width: 1320px;
   		margin: auto auto;
@@ -68,16 +65,7 @@
   		text-decoration: none;
   		color:black;
   	}
-  	
-  	.card {
-  		margin:10px 10px;
-  		display:inline-block;
-  	}
-  	
-  	.card-title {
-  		font-size: 20px
-  	}
-
+ 
   </style>
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 </head>
@@ -87,10 +75,22 @@
 	<div class="header-container">
 		<a href ="/Meg/home"><img id="home" src="/images/home.png"> </a>
 		<a href ="/Meg/board/list/page/1"><img id="home" src="/images/chat.png"> </a>
-		<a href ="/Meg/gallery"><img id="gallery" src="/images/gallery.png"> </a>
-		<a href ="/Meg/login" id="login">Login</a>
-		
+		<a href ="/Meg/gallery"><img id="gallery" src="/images/gallery.png"> </a>			
 	</div>	
+	
+	<div class="welcome">
+		Welcome ${member}!		
+	</div>	
+	<c:if test="${member}==null">
+		<div class="login">
+			<a href ="/Meg/login" id="login">Login</a>
+		</div>		
+	</c:if>		
+	<c:if test="${member}!=null">
+		<div class="logout">
+			<a href ="/Meg/logout" id="logout">Logout</a>
+		</div>		
+	</c:if>		
 </div>
 
 <!---------캐로셀--------->
@@ -129,9 +129,6 @@
   <a class="carousel-control-next" href="#demo" data-slide="next">
     <span class="carousel-control-next-icon"></span>
   </a>
-</div>
-
- 
 </div>
 
 </body>
