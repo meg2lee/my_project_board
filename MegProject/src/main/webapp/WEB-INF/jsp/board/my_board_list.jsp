@@ -18,9 +18,7 @@
 	#header {
 	  width: 100%;
 	  height: 65px;
-	  background-color: #708090;
-	  top: 0px;
-	  z-index: 2000;
+	  text-align: center;
 	}
 	
 	#home,#chat,#gallery {
@@ -102,7 +100,7 @@
 		</tr>
 	</c:forEach>
 </table>
-<ul id="pagination" class="pagination">
+<ul id="pagination" class="pagination ">
 <c:choose> 
 	<c:when test="${pageInfo.hasPreviousPage}">
 		<li class="page-item"><a class="page-link" href="/Meg/board/list/page/${pageInfo.pageNum-1}">Previous</a></li>

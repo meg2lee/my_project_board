@@ -23,9 +23,7 @@
 	#header {
 	  width: 100%;
 	  height: 65px;
-	  background-color: #708090;
-	  top: 0px;
-	  z-index: 2000;
+	  text-align: center;
 	}
 	
 	#home,#chat,#gallery {
@@ -66,8 +64,9 @@
   		
   	}
   	
-  	a {
+  	a:link {
   		text-decoration: none;
+  		color:black;
   	}
   	
   	.card {
@@ -86,10 +85,11 @@
 <!---------헤더 아이콘--------->
 <div id="header">
 	<div class="header-container">
-		<a href ="/Meg/home"><img id="home" src="/images/home.png"></a>
-		<a href ="/Meg/board/list/page/1"><img id="home" src="/images/chat.png"></a>
-		<a href ="/Meg/gallery"><img id="gallery" src="/images/gallery.png"></a>
+		<a href ="/Meg/home"><img id="home" src="/images/home.png"> </a>
+		<a href ="/Meg/board/list/page/1"><img id="home" src="/images/chat.png"> </a>
+		<a href ="/Meg/gallery"><img id="gallery" src="/images/gallery.png"> </a>
 		<a href ="/Meg/login" id="login">Login</a>
+		
 	</div>	
 </div>
 

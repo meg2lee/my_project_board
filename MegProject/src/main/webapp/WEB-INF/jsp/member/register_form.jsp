@@ -10,26 +10,25 @@
 		border:1px solid transparent;		
 		}
 		
-	.container.main-login{	
+	.container.main-join{	
 	    margin-top: 100px;  
 	    text-align: center;
 	}
 	
-	.container.main-login > h1 {
+	.container.main-join > h1 {
 	    font-size: 4.0rem;
 	    color: #685547;
 	}
 	
-	.container.main-login > h2 {
+	.container.main-join > h2 {
 	    font-size: 2.0rem;
 	    margin-top: 20px;
 	    color: #685547;
 	}
 	
-	#user_id_login {
+	#user_id_login, #user_name_login {
 	    height: 30px;
-	    width: 400px;
-	    margin-top: 80px;
+	    width: 400px;	    
 	    font-size: 1.5rem;
 	    border: 0px;
 	    border-bottom: 1px solid black;
@@ -40,7 +39,6 @@
 	    
 	    height: 30px;
 	    width: 400px;
-	    margin-top: 20px;
 	    font-size: 1.5rem;
 	    border: 0px;
 	    border-bottom: 1px solid black;
@@ -111,6 +109,31 @@
   	}
   	
 </style>
+<script src='https://code.jquery.com/jquery-3.5.1.min.js'></script>
+<script>
+	function addUser(){
+	
+		$.ajax({ 
+			url:'/Meg/join', 
+			method: 'post',
+			data: $("#join").serialize(),
+			dataType:'text',
+			success:function (res){
+				if(res.trim()=='true'){
+					alert("Successfully joined")
+					location.href = "Meg/login"
+				} else {
+					alert("failed")
+					return false;
+				}
+			}, 
+			error:function(xhr, status, err){
+				alert(status+', '+err);
+			}
+		
+		});
+	}
+</script>
 </head>
 <body>
 <div id="header">
@@ -122,17 +145,22 @@
 </div>
 
 <div id="main">
-<div class="container main-login">
-	<h1>Login</h1>
-	<h2>로그인</h2>
-	<form>
-		<input type="email" name="email" id="user_id_login" size="40" placeholder="이메일 아이디" required><br>
-		<input type="password" name="password" id="user_pw_login" size="40" placeholder="비밀번호" required><br>
+<div class="container main-join">
+	<h2>JOIN</h2>
+	<form method="post" id="join">
+		<label for="email">EMAIL</label><br>
+		<input type="email" name="email" id="user_id_login" size="40" required><br>
+		<label for="password">PASSWORD</label><br>
+		<input type="password" name="password" id="user_pw_login" size="40" required><br>
+		<label for="name">NAME</label><br>
+		<input type="name" name="name" id="user_name_login" size="40" required><br>
 		<div class="warning"></div>
 		<div>
-			<button type="submit" id="btn_login">LOGIN</button>
+			<button type="button" onclick="addUser();" id="btn_login">JOIN</button>
 		</div>
-	
+		<div>
+			<a href="/Meg/login">LOGIN</a>
+		</div>	
 	</form>
 </div>
 </div>

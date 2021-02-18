@@ -55,7 +55,7 @@ public class HomeController {
     /*로그인 페이지*/
     @GetMapping("login")
     public String loginPage(Model model) {    	
-    	return "Login_page";
+    	return "member/Login_page";
     }
     
     /*갤러리 페이지*/
