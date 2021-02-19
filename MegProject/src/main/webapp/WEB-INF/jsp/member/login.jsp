@@ -52,36 +52,33 @@
   	}
   	
 	div{
-		border:1px solid transparent;		
+		border:1px solid transparent;	
+	}
+	
+	input {
+		margin-top:20px;
 	}
 		
-	.container.main-join{	
+	.container.main-login{	
 	    margin-top: 60px;  
 	    text-align: center;
 	}
 	
-	.container.main-join > h2 {
+	.container.main-login > h2 {
 	    font-size: 2.0rem;
-	    margin-top: 20px;
+	    margin-top: 50px;
 	    color: #685547;
 	}
 	
-	.tit {
-		text-align: left;
-		margin-left: 350px;
-		margin-top:20px;
-		
-	}
-
-	#user_id_login, #user_name_login,#user_pw_login {
+	#user_id_login, #user_pw_login {
 	    height: 30px;
-	    width: 400px;	    
+	    width: 400px;	   
 	    font-size: 1.5rem;
 	    border: 0px;
 	    border-bottom: 1px solid black;
 	    background-color: transparent;
 	}
-
+	
 	#btn_login {
 	    align-items: center;
 	    width: 400px;
@@ -100,71 +97,47 @@
 	    background-color: #685547;
 	    
 	}
-	
-  	
+
 </style>
-<script src='https://code.jquery.com/jquery-3.5.1.min.js'></script>
-<script>
-	function addUser(){
-	
-		$.ajax({ 
-			url:'/Meg/join', 
-			method: 'post',
-			data: $("#join").serialize(),
-			dataType:'text',
-			success:function (res){
-				if(res.trim()=='true'){
-					alert("Successfully joined")
-					location.href = "Meg/login"
-				} else {
-					alert("failed")
-					return false;
-				}
-			}, 
-			error:function(xhr, status, err){
-				alert(status+', '+err);
-			}
-		
-		});
-	}
-</script>
 </head>
 <body>
 <div id="header">
 	<div class="header-container">
 		<a href ="/Meg/home"><img id="home" src="/images/home.png"></a>
 		<a href ="/Meg/board/list/page/1"><img id="home" src="/images/chat.png"></a>
-		<a href ="/Meg/gallery"><img id="gallery" src="/images/gallery.png"> </a>			
-	</div>
+		<a href ="/Meg/gallery"><img id="gallery" src="/images/gallery.png"> </a>
+	</div>	
 	<div class="welcome">
 		Welcome ${member}!		
 	</div>	
-	<c:if test="${member}==null">
-		<div class="login">
-			<a href ="/Meg/login" id="login">Login</a>
-		</div>		
-	</c:if>		
-	<c:if test="${member}!=null">
-		<div class="logout">
-			<a href ="/Meg/logout" id="logout">Logout</a>
-		</div>		
-	</c:if>		
-</div>	
+	<c:choose>
+		<c:when test="${member}==null">
+			<div class="login">
+				<a href ="/Meg/login" id="login">Login</a>
+			</div>		
+		</c:when>		
+		<c:otherwise>
+			<div class="logout">
+				<a href ="/Meg/logout" id="logout">Logout</a>
+			</div>		
+		</c:otherwise>	
+	</c:choose>	
+</div>
 
 <div id="main">
-<div class="container main-join">
-	<h2>JOIN US</h2>
-	<form method="post" id="join">
-		<div class="tit">EMAIL</div>
-		<input type="email" name="email" id="user_id_login" size="40" required>
-		<div class="tit">PASSWORD</div>
-		<input type="password" name="password" id="user_pw_login" size="40" required>
-		<div class="tit">NAME</div>
-		<input type="text" name="name" id="user_name_login" size="40" required><br>
+<div class="container main-login">
+	<h2>Login</h2>
+	<form id="login" action="/Meg/user/login" method="post">
+		<input type="email" name="email" id="user_id_login" size="40" placeholder="Email" required><br>
+		<input type="password" name="password" id="user_pw_login" size="40" placeholder="Password" required><br>
 		<div class="warning"></div>
 		<div>
-			<button type="button" onclick="addUser();" id="btn_login">SIGN IN</button>
+			<button type="submit" id="btn_login">LOGIN</button>
 		</div>
+		<div>
+			<a href="/Meg/register">Join</a>
+		</div>
+	
 	</form>
 </div>
 </div>

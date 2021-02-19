@@ -23,13 +23,14 @@
 	#header {
 	  width: 100%;
 	  height: 80px;
-	  border-bottom-style: dashed;
+	  border:solid;
+	  border-radius: 25px;
 	}
 	
 	#home,#chat,#gallery {
 		width: 50px;
 		height: 50px;
-		margin-top: -40px;
+		margin-top: -30px;
 		margin-left: 10px;
 	}
   	
@@ -37,13 +38,14 @@
   		display: inline-block;
   	}
   	
-  	.welcome {
-  		display: inline-block;
-  		font-size: 50px; 
-  		font-family: fantasy;
-  		color: grey; 
-  		margin-left:260px;		
+	.welcome {
+		display: inline-block;
+		font-size: 50px; 
+		font-family: fantasy;
+		color: darkgray; 
+		margin-left:250px;		
   	}
+  	
   	
   	.login, .logout {
   		display: inline-block;
@@ -81,16 +83,18 @@
 	<div class="welcome">
 		Welcome ${member}!		
 	</div>	
-	<c:if test="${member}==null">
-		<div class="login">
-			<a href ="/Meg/login" id="login">Login</a>
-		</div>		
-	</c:if>		
-	<c:if test="${member}!=null">
-		<div class="logout">
-			<a href ="/Meg/logout" id="logout">Logout</a>
-		</div>		
-	</c:if>		
+	<c:choose>
+		<c:when test="${member}==null">
+			<div class="login">
+				<a href ="/Meg/login" id="login">Login</a>
+			</div>		
+		</c:when>		
+		<c:otherwise>
+			<div class="logout">
+				<a href ="/Meg/logout" id="logout">Logout</a>
+			</div>		
+		</c:otherwise>	
+	</c:choose>		
 </div>
 
 <!---------캐로셀--------->

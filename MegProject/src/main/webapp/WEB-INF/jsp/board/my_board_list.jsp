@@ -17,24 +17,38 @@
   
 	#header {
 	  width: 100%;
-	  height: 65px;
-	  text-align: center;
+	  height: 80px;
+	  border:solid;
+	  border-radius: 25px;
 	}
 	
 	#home,#chat,#gallery {
 		width: 50px;
 		height: 50px;
-		margin-top: 10px;
+		margin-top: -30px;
 		margin-left: 10px;
 	}
 	
-	#login {
-  		margin-left:1000px;
+	.header-container{
+  		display: inline-block;
+  	}
+  	
+  	.welcome {
+		display: inline-block;
+		font-size: 50px; 
+		font-family: fantasy;
+		color: darkgray; 
+		margin-left:250px;		
+  	}
+  	
+  	
+  	.login, .logout {
+  		display: inline-block;
   		font-family: fantasy;
-  		color: white;
-  		font-size: 30px;
-  		margin-top: 20px;
+  		color: black;
+  		font-size: 50px; 	
   		text-decoration: none;
+  		margin-left: 300px
   	}
 	
 	
@@ -69,12 +83,27 @@
 </head>
 <body>
 <div id="header">
-	<div class="header-container-left">
+	<div class="header-container">
 		<a href ="/Meg/home"><img id="home" src="/images/home.png"></a>
 		<a href ="/Meg/board/list/page/1"><img id="home" src="/images/chat.png"></a>
 		<a href ="/Meg/gallery"><img id="gallery" src="/images/gallery.png"></a>
-		<a href ="/Meg/login" id="login">Login</a>
 	</div>
+	<div class="welcome">
+		Welcome ${member}!		
+	</div>	
+	<c:choose>
+		<c:when test="${member}==null">
+			<div class="login">
+				<a href ="/Meg/login" id="login">Login</a>
+			</div>		
+		</c:when>		
+		<c:otherwise>
+			<div class="logout">
+				<a href ="/Meg/logout" id="logout">Logout</a>
+			</div>		
+		</c:otherwise>	
+	</c:choose>		
+	
 </div>
 <div class="container">
 <div id="head">

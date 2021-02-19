@@ -15,49 +15,47 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <script src='https://kit.fontawesome.com/a076d05399.js'></script>
   <style>
+  	h3{
+  		text-align: center;
+  		font-size: 30px;
+  		font-family: "papyrus";
+  		margin-top: 20px;
+  	}
 
-  .carousel-inner img {
-    width: 100%;
-    height: 550px;
-  }
- 
-	#header {
+  	#header {
 	  width: 100%;
-	  height: 65px;
-	  background-color: #708090;
-	  top: 0px;
-	  z-index: 2000;
+	  height: 80px;
+	  border:solid;
+	  border-radius: 25px;
 	}
 	
 	#home,#chat,#gallery {
 		width: 50px;
 		height: 50px;
-		margin-top: 10px;
+		margin-top: -30px;
 		margin-left: 10px;
 	}
-		
-  	table {text-align: center}
   	
-  	h2 {
-  		text-align: center;
-  		font-size: 80px; 
-  		font-family: fantasy;
-  		text-align: center; 
-  		color: grey; 
-  		margin-top: 20px; 
-  	}
-  	
-  	.header-container-right {
+  	.header-container{
   		display: inline-block;
   	}
   	
-  	#login {
-  		margin-left:1000px;
+  	.welcome {
+		display: inline-block;
+		font-size: 50px; 
+		font-family: fantasy;
+		color: darkgray; 
+		margin-left:250px;		
+  	}
+  	
+  	
+  	.login, .logout {
+  		display: inline-block;
   		font-family: fantasy;
-  		color: white;
-  		font-size: 30px;
-  		margin-top: 20px;
+  		color: black;
+  		font-size: 50px; 	
   		text-decoration: none;
+  		margin-left: 300px
   	}
   	
   	.container {
@@ -90,12 +88,27 @@
 		<a href ="/Meg/home"><img id="home" src="/images/home.png"></a>
 		<a href ="/Meg/board/list/page/1"><img id="home" src="/images/chat.png"></a>
 		<a href ="/Meg/gallery"><img id="gallery" src="/images/gallery.png"></a>
-		<a href ="/Meg/login" id="login">Login</a>
 	</div>	
+	<div class="welcome">
+		Welcome ${member}!		
+	</div>	
+	<c:choose>
+		<c:when test="${member}==null">
+			<div class="login">
+				<a href ="/Meg/login" id="login">Login</a>
+			</div>		
+		</c:when>		
+		<c:otherwise>
+			<div class="logout">
+				<a href ="/Meg/logout" id="logout">Logout</a>
+			</div>		
+		</c:otherwise>	
+	</c:choose>	
 </div>
 <!---------카드--------->
+<h3>“In the end,<br> we only regret the chances we didn’t take”</h3>
 <div class="container">
-  <h2>South America</h2>
+  
   <div class="card" style="width:250px">
     <img class="card-img-top" src="/images/meg/m1.jpg" alt="Card image" style="width:100%">
     <div class="card-body">
@@ -132,8 +145,6 @@
    </div>
  </div>
  
- <div class="container">
-  <h2>Mexico</h2>
   <div class="card" style="width:250px">
     <img class="card-img-top" src="/images/meg/12.JPG" alt="Card image" style="width:100%">
     <div class="card-body">

@@ -16,6 +16,13 @@
 	#reply {margin-right: 0px}
 	#text {width: 700px}
 	#writer {width: 100px}
+	.ck .ck-editor{
+		max-width: 500px
+	}
+	
+	.ck-editor__editable{
+		min-height:300px
+	}
 
 
 </style>
@@ -209,7 +216,7 @@
 
 <!-- 메인페이지가기 & 게시글삭제 버튼 -->	
 	<p class="btn2">
-		<a href="/mybatis/board/list/page/1" class="btn btn-primary btn-md">Main Page</a>
+		<a href="/Meg/board/list/page/1" class="btn btn-primary btn-md">Main Page</a>
 		<a href="javascript:deleteIt('${board.num}');" class="btn btn-primary btn-md">Delete</a>
 	</p>
 </div>

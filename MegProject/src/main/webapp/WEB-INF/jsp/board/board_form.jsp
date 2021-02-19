@@ -13,7 +13,14 @@
 	background-size: cover;}
 	#head {margin-top:10%;}
 	.btn3 {text-align: center;font-size: 30px; font-family: fantasy;}
-
+	.ck .ck-editor{
+		max-width: 500px
+	}
+	
+	.ck-editor__editable{
+		min-height:300px
+	}
+	
 </style>
 <meta charset="utf-8"> 
 <script src="https://cdn.ckeditor.com/ckeditor5/24.0.0/classic/ckeditor.js"></script>
@@ -55,7 +62,7 @@
 		
 			});
 	}
-			
+
 </script>
 </head> 
 <body>
@@ -71,7 +78,7 @@
       <label for="title">Title:</label>
       <input type="text" class="form-control" id="title" name="title">
       <label for="contents">Contents:</label>
-      <textarea class="form-control" rows="10" id="contents"></textarea>
+      <textarea class="form-control" rows="50" id="contents" name="contents"></textarea>
       <label for="files">Files:</label>
       <input type="file" class="form-control" id="files" name="files"  multiple="multiple">
       <button type="button" onclick="add();" class="btn btn-primary">Post</button>
