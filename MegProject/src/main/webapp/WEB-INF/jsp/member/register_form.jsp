@@ -40,10 +40,9 @@
   	.welcome {
 		display: inline-block;
 		font-size: 50px; 
-		font-family: "Verdana";
-		font-weight: bold;
+		font-family: fantasy;
 		color: darkgray; 
-		margin-left:200px;		
+		margin-left:330px;	
   	}
   	
   	
@@ -115,7 +114,7 @@
 			success:function (res){
 				if(res.trim()=='true'){
 					alert("Successfully joined")
-					location.href = "Meg/login"
+					location.href = "/Meg/login"
 				} else {
 					alert("failed")
 					return false;
@@ -153,7 +152,7 @@
 
 <div id="main">
 <div class="container main-join">
-	<h2>JOIN US</h2>
+	<h2>JOIN US!</h2>
 	<form method="post" id="join">
 		<div class="tit">EMAIL</div>
 		<input type="email" name="email" id="user_id_login" size="40" required>

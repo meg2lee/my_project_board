@@ -43,7 +43,7 @@
 		font-size: 50px; 
 		font-family: fantasy;
 		color: darkgray; 
-		margin-left:250px;		
+		margin-left:350px;		
   	}
   	
   	
@@ -83,18 +83,11 @@
 	<div class="welcome">
 		Welcome ${member}!		
 	</div>	
-	<c:choose>
-		<c:when test="${member}==null">
+	
 			<div class="login">
 				<a href ="/Meg/login" id="login">Login</a>
 			</div>		
-		</c:when>		
-		<c:otherwise>
-			<div class="logout">
-				<a href ="/Meg/logout" id="logout">Logout</a>
-			</div>		
-		</c:otherwise>	
-	</c:choose>		
+	
 </div>
 
 <!---------캐로셀--------->
@@ -122,8 +115,8 @@
     <div class="carousel-item">
       <img src="/images/travel/travel3.jpg" alt="New York" width="1100" height="500">
       <div class="carousel-caption">
-        <h3>New York</h3>
-        <p>We love the Big Apple!</p>
+        <h3>Fly Away</h3>
+        <p>Into the unknown world</p>
       </div>   
     </div>
   </div>

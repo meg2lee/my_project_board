@@ -7,7 +7,10 @@
 <title>You are always welcome</title>
 <style>
 
-	body {background-image: url("/images/office.jpg");}
+	body {
+		background-image: url("/images/office.jpg");
+		width:1260px;
+	}
 	#main_form label {margin-left: auto;margin-right: auto; font-size: 30px; font-family: fantasy;
 	background-size: cover;}
 	#head {margin-top:5%}

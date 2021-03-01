@@ -93,7 +93,7 @@
 	function deleteatt(filename,num) { 
 		
 		$.ajax({ 
-			url:'/mybatis/board/deleteatt', 
+			url:'/Meg/board/deleteatt', 
 			method: 'delete',
 			data: {'filename': filename, 'num':num},
 			dataType:'text',
@@ -234,6 +234,7 @@
 	
 	$('#reset').click(function(){
 		editor.setData( '' );
+		input.value = null;
 		
 	})
 </script>	

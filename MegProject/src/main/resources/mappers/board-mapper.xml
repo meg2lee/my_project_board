@@ -35,8 +35,8 @@
 
 	<select id="search" resultType="com.project.meg.vo.BoardVO"
 	parameterType="String">
-	SELECT * FROM board WHERE (title LIKE CONCAT('%',#{sen},'%'))
-	OR (author LIKE CONCAT('%',#{sen},'%')) ORDER BY num DESC
+	SELECT * FROM board WHERE (title LIKE CONCAT('%',#{text},'%'))
+	OR (author LIKE CONCAT('%',#{text},'%')) ORDER BY num DESC
 	</select>
   	
 	<update id="updateBoard"

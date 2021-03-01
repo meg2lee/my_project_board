@@ -15,11 +15,16 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <style>
   
+  body {
+  	width: 1260px;
+  }
+  
 	#header {
-	  width: 100%;
+	  width: 1260px;
 	  height: 80px;
 	  border:solid;
 	  border-radius: 25px;
+	  align-items: center;
 	}
 	
 	#home,#chat,#gallery {
@@ -38,7 +43,7 @@
 		font-size: 50px; 
 		font-family: fantasy;
 		color: darkgray; 
-		margin-left:250px;		
+		margin-left:350px;		
   	}
   	
   	
@@ -91,18 +96,12 @@
 	<div class="welcome">
 		Welcome ${member}!		
 	</div>	
-	<c:choose>
-		<c:when test="${member}==null">
+
+
 			<div class="login">
 				<a href ="/Meg/login" id="login">Login</a>
 			</div>		
-		</c:when>		
-		<c:otherwise>
-			<div class="logout">
-				<a href ="/Meg/logout" id="logout">Logout</a>
-			</div>		
-		</c:otherwise>	
-	</c:choose>		
+
 	
 </div>
 <div class="container">
@@ -113,19 +112,19 @@
 	<thead>
 		<tr id="top"><th>ORDER</th><th>TITLE</th><th>AUTHOR</th><th>DATE</th><th>VIEWS</th></tr>
 	</thead>
-	<c:forEach var="b" items="${pageInfo.list}">
-	
+	<c:forEach var="b" items="${pageInfo.list}">	
 		<tr class="this">
 			<td>${b.num}</td>	
 			<td>
 				<c:if test="${b.pnum != 0 }"></c:if>
-				<a href = "/Meg/board/detail?num=${b.num}" onclick="countView(${b.num});">${b.title}</a>
+				<a href = "/Meg/board/detail?num=${b.num}" 
+					onclick="countView(${b.num});">
+					${b.title}
+				</a>
 			</td>
 			<td>${b.author}</td>
 			<td>${b.wdate}</td>			
-			<td>${b.views}</td>
-		
-		
+			<td>${b.views}</td>	
 		</tr>
 	</c:forEach>
 </table>

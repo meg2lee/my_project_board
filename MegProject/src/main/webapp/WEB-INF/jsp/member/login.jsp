@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Login page</title>
 <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -40,10 +40,9 @@
   	.welcome {
 		display: inline-block;
 		font-size: 50px; 
-		font-family: "Verdana";
-		font-weight: bold;
+		font-family: fantasy;
 		color: darkgray; 
-		margin-left:200px;		
+		margin-left:330px;		
   	}
   	
   	
@@ -64,9 +63,10 @@
 	    text-align: center;
 	}
 	
-	.container.main-login > h2 {
-	    font-size: 2.0rem;
+	.container.main-login > h1 {
+	    font-size: 3.0rem;
 	    margin-top: 50px;
+	    margin-bottom: 20px;
 	    color: #685547;
 	}
 	
@@ -85,8 +85,18 @@
 	    height: 40px;
 	    background-color:  #fde982;
 	    margin-top: 30px;
-	    margin-bottom: 30px;
 	    color: #685547;
+	    font-size: 1.5rem;
+	    font-style: bold;
+	    border-color: transparent;
+	}
+	
+	#btn_join{
+		align-items: center;
+	    width: 400px;
+	    height: 40px;
+	    background-color: #685547;    
+	    color: #fde982;
 	    font-size: 1.5rem;
 	    font-style: bold;
 	    border-color: transparent;
@@ -95,6 +105,12 @@
 	#btn_login:hover{
 	    color: #f8f7e6;
 	    background-color: #685547;
+	    
+	}
+	
+	#btn_join:hover{
+	    color: #685547;
+	    background-color: #f8f7e6;
 	    
 	}
 
@@ -126,7 +142,7 @@
 
 <div id="main">
 <div class="container main-login">
-	<h2>Login</h2>
+	<h1>WELCOME</h1>
 	<form id="login" action="/Meg/user/login" method="post">
 		<input type="email" name="email" id="user_id_login" size="40" placeholder="Email" required><br>
 		<input type="password" name="password" id="user_pw_login" size="40" placeholder="Password" required><br>
@@ -135,7 +151,7 @@
 			<button type="submit" id="btn_login">LOGIN</button>
 		</div>
 		<div>
-			<a href="/Meg/register">Join</a>
+			<button type="submit" id="btn_join" onclick="location.href='/Meg/register'">SIGN UP</a>
 		</div>
 	
 	</form>

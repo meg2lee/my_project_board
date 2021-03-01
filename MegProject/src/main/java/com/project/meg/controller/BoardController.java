@@ -130,6 +130,7 @@ public class BoardController {
 	public boolean insertBoard(@RequestParam("files")MultipartFile[] mfiles,
 			HttpServletRequest request
 			) {
+    	
 		ServletContext context = request.getServletContext();
 		String savePath = context.getRealPath("/WEB-INF/upload");
 		BoardVO vo = new BoardVO();
@@ -234,16 +235,13 @@ public class BoardController {
     
 	
 	@PostMapping("/board/search")
-	public String search(@RequestParam("searchType") String sas,
-			@RequestParam("searchText") String sen, Model model,
+	public String search(@RequestParam("searchType") String type,
+			@RequestParam("searchText") String text, Model model,
 			@RequestParam(name="num",defaultValue = "1") int num) {
 		PageHelper.startPage(num, 5);
-		System.out.println(sas);
-		System.out.println(sen);
-    	PageInfo<BoardVO> pageInfo = new PageInfo<>(boardMapper.search(sas, sen));  	
+    	PageInfo<BoardVO> pageInfo = new PageInfo<>(boardMapper.search(type, text));  	
 		model.addAttribute("pageInfo",pageInfo);
-		return "board/my_board_list";
-		
+		return "board/my_board_list";		
 	}
    
 }

@@ -71,14 +71,14 @@
  <h2>Questionnaire Form</h2>
   <p>Kindly fill up the below form</p>
 </div>
-<form action="/Meg/board/upload" method="post" enctype="multipart/form-data">
+<form method="post" enctype="multipart/form-data">
     <div class="form-group">
       <label for="author">Name:</label>
       <input type="text" class="form-control" id="author" name="author">
       <label for="title">Title:</label>
       <input type="text" class="form-control" id="title" name="title">
       <label for="contents">Contents:</label>
-      <textarea class="form-control" rows="50" id="contents" name="contents"></textarea>
+      <textarea class="form-control" rows="10" id="contents" name="editor"></textarea>
       <label for="files">Files:</label>
       <input type="file" class="form-control" id="files" name="files"  multiple="multiple">
       <button type="button" onclick="add();" class="btn btn-primary">Post</button>
@@ -93,7 +93,10 @@
 	var editor;
 	
     ClassicEditor
-        .create( document.querySelector( '#contents' ) )
+        .create( document.querySelector( '#contents' ), {
+            // 제거 하고싶은 플러그인 (배열)
+            removePlugins: [ 'ImageUpload' ]
+       } )
         .then( newEditor => {
         	editor = newEditor;
    		} )

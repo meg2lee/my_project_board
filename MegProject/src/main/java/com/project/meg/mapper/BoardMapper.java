@@ -35,7 +35,7 @@ public interface BoardMapper {
 	int countUpdate(int num);
   
     /*게시글 검색*/
-	List<BoardVO> search(String sas, String sen);
+	List<BoardVO> search(String type, String text);
 	
 	/*detail페이지*/
 	List<BoardVO> getIndexList(int num);
